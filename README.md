@@ -1,5 +1,6 @@
 # Práctica de Garaje Odoo
 
+Es imporante a lo largo de todo el proceso reinstalar, reeestar etc...
 ## Resumen general
 En esta práctica veremos como hacer un módulo de gestión de un garaje en Odoo Local utilizando los lenguajes XML, Python y CSV. Explicando uno a uno los archivos y sus funcionalidades, y también de manera ordenada en función del orden de edición que hemos seguido.
 
@@ -133,3 +134,63 @@ mantenimiento_ids= fields.Many2many('garaje.mantenimiento',string='Mantenimiento
 En esta clase coche se establece una relación de coches-aparcamiento Many2one(muchos a uno), es decir, un aparcamiento puede tener muchos coches pero un coche solo esta en un aparcamiento.
 
 Por otro lado, se establece una relación de coches-mantenimiento Many2many (muchos a muchos), es decir, un coche puede tener varios mantenimientos y un mismo mantenimiento puede darse en varios coches.
+
+
+## Otras cuestiones de aspecto y modelo
+
+### Años del coche
+
+Para calcular los años del coche en [Models](./models/models.py) se implementa esta función en la clase coche. Para que funcione hay realizar una serie de imports
+
+```Python
+from dateutil.relativedelta import *
+from datetime import date
+
+@api.depends('construido')
+    def _get_annos(self):
+        for coche in self:
+            hoy = date.today()
+            coche.annos=relativedelta(hoy, coche.construido).years
+```
+
+![Coches_info_general](./screenshots/coche_bcn_info_general.png)
+
+### Restricciones
+
+Se pueden establecer restricciones para que, por ejemplo, no se pueda dar de alta(crear un coche) con una matrícula que ya exista. Para ello en [Models](./models/models.py) en la clase coche se añade esta restricción: 
+```Python
+_sql_constraints=[('name_uniq', 'unique(name)', 'La matricula ya existe')]
+```
+
+![Coches_restriccion_matricula](./screenshots/coche_restriccion_matricula.png)
+
+
+### Vista calendario
+
+Se puede mejorar el mensaje que se muestra en el calendario para que la vista sea más intuitiva para ello en [Models](./models/models.py) en la clase mantenimiento hay que crear esta función
+
+```Python
+ def name_get(self):
+        resultados=[]
+        for mantenimiento in self:
+            descripcion = f'{len(mantenimiento.coche_ids)} coches -{mantenimiento.coste} €'
+            resultados.append((mantenimiento.id, descripcion))
+            return resultados
+```
+
+![Mantenimiento_calendario](./screenshots/mantenimientos_calendario.png)
+
+![Mantenimiento_calendario_info](./screenshots/mantenimientos_calendario_info.png)
+
+### Icono al módulo
+
+Crear carpeta static y dentro, la carpeta description y se añade una imagen en formato png.
+Después, en [Views](./views/views.xml) se añade el siguiente código:
+
+```XML
+<menuitem name="garaje" id="garaje.menu_root" web_icon="garaje, static/description/icon.png"/>
+```
+
+![Icono_modulo_garaje](./screenshots/modulo_gararaje_app.png)
+
+## Informes
