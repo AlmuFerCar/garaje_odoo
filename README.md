@@ -9,7 +9,7 @@ A lo largo de la creación de este módulo de garaje va a ser necesario realizar
 ![opciones modulo garaje](./screenshots/opciones_modulo_garaje.png)
 
 ### Reiniciar y hacer seguimiento Odoo desde la terminal
-Cada vez que se modifique un archivo .py es necesario reiniciar odoo, de forma complementaria se puede hacer un seguimiento mediante la terminal de comandos para ver los procesos que se están llevando a cabo cuando Odoo está en ejecución. 
+Cada vez que se modifique un archivo **.py** es necesario reiniciar odoo, de forma complementaria se puede hacer un seguimiento mediante la terminal de comandos para ver los procesos que se están llevando a cabo cuando Odoo está en ejecución. 
 - Para reiniciar Odoo se puede obtar por uno de estos dos comandos:
 
 ```
