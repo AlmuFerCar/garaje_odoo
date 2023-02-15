@@ -45,10 +45,10 @@ Sin embargo tenemos otro archivo denominado [ir.model.access](./security/ir.mode
 
 En esta captura se muestra como acceder a los grupos de usuarios:
 
-####Convertirse en superusuario
+- CONVERTIRSE EN SUPERUSUARIO
 ![Captura tutorial como ir](./screenshots/debug_convertirse_superusuario.png)
 
-####Acceder desde ajustes a grupos
+- ACCEDER DESDE AJUSTES A GRUPOS
 ![Captura tutorial como ir](./screenshots/ajustes_usuarios_compañias.png)
 
 ### Permisos por grupos de usuarios
