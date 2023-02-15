@@ -37,7 +37,7 @@ El archivo [Manifest](./__manifest__.py) nos sirve para editar la información g
 ![Captura manifest características generales](./screenshots/caracteristicas_instaladas_modulo_garaje_app.png)
 
 ## Models
-En el archivo [Models](./models/models.py) declararemos todas las clases que queremos que existan en nuestro módulo y, a su vez, sus atributos. Hemos de distinguir aquí los atributos que empiecen por ***_*** y los que no, ya que si su comienzo es por este carácter Odoo lo leerá como información general de la clase, o modelo, por lo tanto no se asignará como atributo. Otros código que podemos ver son los comenzados por def, los cuales indican que estamos creando un método, en nuestro caso para el módulo coche, por ejemplo. Una vez terminada esta parte de código hemos de comenzar la relación entre tablas (indicada por los comentarios en el código) teniendo que especificar que clase de relación tiene cada clase con los atributos de otras (esto es realmente como relacionar las primary keys entre tablas en Python).
+En el archivo [Models](./models/models.py) declararemos todas las clases que queremos que existan en nuestro módulo y, a su vez, sus atributos. Hemos de distinguir aquí los atributos que empiecen por ***_*** y los que no, ya que si su comienzo es por este carácter Odoo lo leerá como información general de la clase, o modelo, por lo tanto no se asignará como atributo. Otros código que podemos ver son los comenzados por **def**, los cuales indican que estamos creando un método, en nuestro caso para el módulo coche, por ejemplo. Una vez terminada esta parte de código hemos de comenzar la relación entre tablas (indicada por los comentarios en el código) teniendo que especificar que clase de relación tiene cada clase con los atributos de otras (esto es realmente como relacionar las primary keys entre tablas en Python).
 
 ![Captura ver modelos](./screenshots/modelos_garaje.png)
 
@@ -57,7 +57,7 @@ Una vez ya somos superusuarios podemos clicar en el cuadrado de puntos de la par
 
 ![Captura menu_garaje](./screenshots/aplicaciones_menu_garaje.png)
 
-Una de las vistas que se pueden observar es la del calendario (se verá más adelante su personalización)
+Una de las vistas que se pueden observar es la del calendario (se verá más adelante su personalización):
 ![Captura ver vista calendario](./screenshots/mantenimientos_calendario_info.png)
 
 Y también se pueden observar los diferentes items del formulario si se quiere dar de alta (crear) un nuevo coche:
@@ -255,7 +255,8 @@ Para que se puedan implementar de forma correcta todos los archivos creados es n
     ],
 ```
 
-*** Trabajo realizado por Almudena Fernández Cárdenas y Daniel García Ayala***
+
+**Trabajo realizado por Almudena Fernández Cárdenas y Daniel García Ayala**
 
 >This repository is licensed under
 >[Creativecommons Org Licenses By Sa 4](https://creativecommons.org/licenses/by-nc-sa/4.0/)
