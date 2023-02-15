@@ -3,7 +3,7 @@
 ## Información importante antes de empezar con el proceso de creación de un módulo nuevo en Odoo
 ### Actualizar, desinstalar e instalar módulos Odoo
 A lo largo de la creación de este módulo de garaje va a ser necesario realizar de forma periódica las siguientes acciones:
-- Actualizar la lista de aplicaciones: Aplicaciones  $\rightarrow$ ACtualizar lista de aplicaciones  $\rightarrow$ ACTUALIZAR.
+- Actualizar la lista de aplicaciones: Aplicaciones  $\rightarrow$ Actualizar lista de aplicaciones  $\rightarrow$ ACTUALIZAR.
 - Desinstalar el módulo que se está creando y volverlo a instalar. También se puede actualizar el módulo.
 
 ![opciones modulo garaje](./screenshots/opciones_modulo_garaje.png)
