@@ -28,7 +28,18 @@ En el archivo [Models](./models/models.py) declararemos todas las clases que que
 ## Views
 Este archivo [Views](./views/views.xml) será como mostrar gráficamente el modelo, esto quiere decir que este archivo es el que muestra la interfaz gráfica tanto los campos, como los formularios de los mismos. También podemos observar que podemos crear varias vistas, ya que si revisamos el código, están creadas vistas como el Search, Calendar, etc. 
 
+Para poder acceder a la aplicación de garaje desde el menu lateral de odoo es necesario conectarse como superusuario
+![Captura tutorial como ir](./screenshots/debug_convertirse_superusuario.png)
+
+Una vez ya somos superusuarios podemos clicar en el cuadrado de puntos de la parte superior izquierda y aparece nuestro menú con la aplicación de garaje
+
+![Captura menu_garaje](./screenshots/aplicaciones_menu_garaje.png)
+
+Una de las vistas que se pueden observar es la del calendario (se verá más adelante su personalización)
 ![Captura ver vista calendario](./screenshots/mantenimientos_calendario_info.png)
+
+Y también se pueden observar los diferentes items del formulario si se quiere dar de alta (crear) un nuevo coche
+![Captura ver vista formulario_coche](./screenshots/coches_crear_formulario.png)
 
 La estructura del código es simple, ya que primero hemos de declarar las vistas con sus respectivos formularios y vistas, y seguidamente definir los menús para poder llamarlos a que sean visibles. Y también llamarlo mediante el <menuitem> para que aparcezca en la parte superior de la pantalla (a modo de menú).
 
@@ -44,9 +55,6 @@ Para la seguridad primero hemos de crear de archivo [Garaje_security](./security
 Sin embargo tenemos otro archivo denominado [ir.model.access](./security/ir.model.access.csv) el cual es el que otorga los permisos a cada grupo de usuarios, para la edición de este archivo hemos utilizado [LibreOffice](https://es.libreoffice.org/) ya que la lectura del código es difícil, por lo tanto, hemos de declarar los modelos sobre los que actúan los nuevo usuarios y los números del final de cada línea nos indicarán qué permisos tienen (lectura, escritura, creación y desconexión). Dato curioso es que si entramos al archivo desde Github, aparece como una hoja de excel.
 
 En esta captura se muestra como acceder a los grupos de usuarios:
-
-- CONVERTIRSE EN SUPERUSUARIO
-![Captura tutorial como ir](./screenshots/debug_convertirse_superusuario.png)
 
 - ACCEDER DESDE AJUSTES A GRUPOS
 ![Captura tutorial como ir](./screenshots/ajustes_usuarios_compañias.png)
