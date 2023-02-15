@@ -20,13 +20,16 @@ La estructura del código es simple, ya que primero hemos de declarar las vistas
 
 Para los formularios se utilizan etiquetas simples como <field> para indicar que es un campo y <group> para hacer la agrupación estética de los cambios. No tenemos que declarar de que tipo es cada campo, como podría ser un checkbox, ya que ya hemos indicado que tipo son en el archivo [Models](./models/models.py).
 
-![Captura ver modelos](./screenshots/mantenimientos_info_coche.png)
+![Captura ver vista](./screenshots/mantenimientos_info_coche.png)
   
 ## Security
+Para la seguridad primero hemos de crear de archivo [Garaje_security](./security/garaje_security.xml), en este declararemos los distintos grupos de usuarios que vamos a tener en nuestro módulo, en este caso hemos declarado dos, usuario y director, el cual también hereda de usuario. Para ello, en el código simplemente indicamos su nombre y referenciamos sobre qué módulo se crean y en el caso del director referenciar de dónde hereda.
 
-Para la seguridad primero hemos de crear de archivo [Garaje_security](./security/garaje_security.xml)
+![Captura ver grupos de seguridad](./screenshots/usuarios_compañias_grupos.png)
 
+Sin embargo tenemos otro archivo denominado [ir.model.access](./security/ir.model.access.csv) el cual es el que otorga los permisos a cada grupo de usuarios, para la edición de este archivo hemos utilizado [LibreOffice](https://es.libreoffice.org/) ya que la lectura del código es difícil, por lo tanto, hemos de declarar los modelos sobre los que actúan los nuevo usuarios y los números del final de cada línea nos indicarán qué permisos tienen (lectura, escritura, creación y desconexión). Dato curioso es que si entramos al archivo desde Github, aparece como una hoja de excel.
 
+![Captura ver grupos de seguridad con permisos](./screenshots/grupos_garaje_usuario_permisos.png)
 
 ## Demo
 En este apartado se va a crear una serie de datos de prueba que se puedan visualizar en el módulo garaje, para esto se accede a la carpeta [Demo](./demo/demo.xml) y se añaden los datos teniendo en cuenta la estructura del archivo [models](./models/models.py) para que lo recozca y se visualicen correctamente.
