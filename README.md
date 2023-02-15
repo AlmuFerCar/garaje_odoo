@@ -85,3 +85,29 @@ Dentro de cada uno de los módulos se han incluido los datos de forma detallada:
 
 En esta captura se puede observar la relación entre aparcamiento y coches
 ![Aparcamiento_info_general](./screenshots/aparcamiento_plaza_mayor_info_coche.png)
+
+### Coches
+![Coches_info_general](./screenshots/coche_bcn_info_general.png)
+
+Y la relación entre coche, aparcamiento y mantenimiento
+![Coches_info_mantenimiento](./screenshots/coche_bcn_info_mantenimientos.png)
+
+
+### Mantenimiento
+![Mantenimiento_info_general](./screenshots/mantenimientos_info_general.png)
+
+Se observa la relación entre mantenimiento y coche
+![Mantenimiento_info_coche](./screenshots/mantenimientos_info_coche.png)
+
+
+Es importante destacar que la relación entre los diferentes modelos: coche, aparcamiento y mantenimiento se establecen en el archivo [models](./models/models.py) dentro de cada clase como se ha comentado en el apartado de **Models** y que se muestra el ejemplo del código de la clase coche.
+
+
+```Python
+aparcamiento_id = fields.Many2one('garaje.aparcamiento',string='Aparcamiento')
+mantenimiento_ids= fields.Many2many('garaje.mantenimiento',string='Mantenimientos')
+```
+
+En esta clase coche se establece una relación de coches-aparcamiento Many2one(muchos a uno), es decir, un aparcamiento puede tener muchos coches pero un coche solo esta en un aparcamiento.
+
+Por otro lado, se establce una relación de coches-mantenimiento Many2many (muchos a muchos), es decir, un coche puede tener varios mantenimientos y un mismo mantenimiento puede darse en varios coches.
