@@ -25,3 +25,24 @@ Para los formularios se utilizan etiquetas simples como <field> para indicar que
 ## Security
 
 Para la seguridad primero hemos de crear de archivo [Garaje_security](./security/garaje_security.xml)
+
+
+
+## Demo
+En este apartado se va a crear una serie de datos de prueba que se puedan visualizar en el módulo garaje, para esto se accede a la carpeta [Demo](./demo/demo.xml) y se añaden los datos teniendo en cuenta la estructura del archivo [models](./models/models.py) para que lo recozca y se visualicen correctamente.
+
+Los datos que se añaden son de los diferentes modelos: aparcamiento, coches y mantenimiento
+
+![Bloque aparcamiento](./screenshots/app_garaje_bloques_aparcamiento.png)
+
+![Bloque coches](./screenshots/app_garaje_bloques_coches.png)
+
+![Bloque mantenimiento](./screenshots/app_garaje_bloques_mantenimientos.png)
+
+Dentro de cada uno de los módulos se han incluido los datos de forma detallada:
+
+### Aparcamiento
+![Aparcamiento_info_general](./screenshots/aparcamiento_plaza_mayor_info_general.png)
+
+En esta captura se puede observar la relación entre aparcamiento y coches
+![Aparcamiento_info_general](./screenshots/aparcamiento_plaza_mayor_info_coche.png)
