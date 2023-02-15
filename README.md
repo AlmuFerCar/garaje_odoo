@@ -21,3 +21,7 @@ La estructura del código es simple, ya que primero hemos de declarar las vistas
 Para los formularios se utilizan etiquetas simples como <field> para indicar que es un campo y <group> para hacer la agrupación estética de los cambios. No tenemos que declarar de que tipo es cada campo, como podría ser un checkbox, ya que ya hemos indicado que tipo son en el archivo [Models](./models/models.py).
 
 ![Captura ver modelos](./screenshots/mantenimientos_info_coche.png)
+  
+## Security
+
+Para la seguridad primero hemos de crear de archivo [Garaje_security](./security/garaje_security.xml)
