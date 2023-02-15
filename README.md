@@ -43,8 +43,12 @@ Para la seguridad primero hemos de crear de archivo [Garaje_security](./security
 
 Sin embargo tenemos otro archivo denominado [ir.model.access](./security/ir.model.access.csv) el cual es el que otorga los permisos a cada grupo de usuarios, para la edición de este archivo hemos utilizado [LibreOffice](https://es.libreoffice.org/) ya que la lectura del código es difícil, por lo tanto, hemos de declarar los modelos sobre los que actúan los nuevo usuarios y los números del final de cada línea nos indicarán qué permisos tienen (lectura, escritura, creación y desconexión). Dato curioso es que si entramos al archivo desde Github, aparece como una hoja de excel.
 
-![Captura ver grupos de seguridad con permisos](./screenshots/grupos_garaje_usuario_permisos.png)
-
+### Permisos por grupos de usuarios
+![Captura ver grupos de seguridad con permisos usuario](./screenshots/grupos_garaje_usuario_permisos.png)
+  
+![Captura ver grupos de seguridad con permisos director](./screenshots/grupos_garaje_director_permisos.png)
+  
+### Permisos por campos
 ![Captura ver permisos en mantenimiento](./screenshots/modelos_garaje_mantenimiento_permisos.png)
   
 ![Captura ver permisos en coche](./screenshots/modelos_garaje_coche_permisos.png)
