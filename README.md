@@ -45,8 +45,22 @@ La estructura del código es simple, ya que primero hemos de declarar las vistas
 
 Para los formularios se utilizan etiquetas simples como <field> para indicar que es un campo y <group> para hacer la agrupación estética de los cambios. No tenemos que declarar de que tipo es cada campo, como podría ser un checkbox, ya que ya hemos indicado que tipo son en el archivo [Models](./models/models.py).
 
-![Captura ver vista](./screenshots/mantenimientos_info_coche.png)
-  
+![Captura ver vista](./screenshots/mantenimientos_info_coche.png) 
+
+Otra parte importante de las vistas es la posibilidad de agrupar, filtrar. Estas acciones están implementadas en [Views](./views/views.xml) tanto para coche (se puede filtrar por averiado) como para mantenimiento (se puede agrupar por tipo).
+![Captura filtro coche](./screenshots/coches_filto.png) 
+![Captura grupo mantenimiento](./screenshots/mantenimiento_agrupar.png) 
+
+```XML
+<filter name="group_by_averiado" string="Averiado" context="{'group_by' : 'averiado'}"/>
+````
+![Captura filtro averiado coche](./screenshots/coches_filto_averiado.png) 
+
+```XML
+<filter name="group_by_tipo" string="Tipo" context="{'group_by' : 'tipo'}"/>
+```
+![Captura grupo tipo mantenimiento](./screenshots/mantenimiento_agrupar_tipo.png) 
+
 ## Security
 Para la seguridad primero hemos de crear de archivo [Garaje_security](./security/garaje_security.xml), en este declararemos los distintos grupos de usuarios que vamos a tener en nuestro módulo, en este caso hemos declarado dos, usuario y director, el cual también hereda de usuario. Para ello, en el código simplemente indicamos su nombre y referenciamos sobre qué módulo se crean y en el caso del director referenciar de dónde hereda.
 
@@ -118,4 +132,4 @@ mantenimiento_ids= fields.Many2many('garaje.mantenimiento',string='Mantenimiento
 
 En esta clase coche se establece una relación de coches-aparcamiento Many2one(muchos a uno), es decir, un aparcamiento puede tener muchos coches pero un coche solo esta en un aparcamiento.
 
-Por otro lado, se establce una relación de coches-mantenimiento Many2many (muchos a muchos), es decir, un coche puede tener varios mantenimientos y un mismo mantenimiento puede darse en varios coches.
+Por otro lado, se establece una relación de coches-mantenimiento Many2many (muchos a muchos), es decir, un coche puede tener varios mantenimientos y un mismo mantenimiento puede darse en varios coches.
