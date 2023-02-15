@@ -1,6 +1,27 @@
 # Práctica de Garaje Odoo
 
-Es imporante a lo largo de todo el proceso reinstalar, reeestar etc...
+## Información importante antes de empezar con el proceso de creación de un módulo nuevo en Odoo
+### Actualizar, desinstalar e instalar módulos Odoo
+A lo largo de la creación de este módulo de garaje va a ser necesario realizar de forma periódica las siguientes acciones:
+- Actualizar la lista de aplicaciones: Aplicaciones  $\rightarrow$ ACtualizar lista de aplicaciones  $\rightarrow$ ACTUALIZAR.
+- Desinstalar el módulo que se está creando y volverlo a instalar. También se puede actualizar el módulo.
+
+![opciones modulo garaje](./screenshots/opciones_modulo_garaje.png)
+
+### Reiniciar y hacer seguimiento Odoo desde la terminal
+Cada vez que se modifique un archivo .py es necesario reiniciar odoo, de forma complementaria se puede hacer un seguimiento mediante la terminal de comandos para ver los procesos que se están llevando a cabo cuando Odoo está en ejecución. 
+- Para reiniciar Odoo se puede obtar por uno de estos dos comandos:
+
+```
+sudo systemctl restart odoo.service
+sudo service odoo restart
+```
+
+- Para llevar el seguimiento de los procesos que se realizan mientras se ejecuta Odoo:
+
+```
+tail -f /var/log/odoo/odoo-server.log
+```
 ## Resumen general
 En esta práctica veremos como hacer un módulo de gestión de un garaje en Odoo Local utilizando los lenguajes XML, Python y CSV. Explicando uno a uno los archivos y sus funcionalidades, y también de manera ordenada en función del orden de edición que hemos seguido.
 
@@ -93,7 +114,7 @@ En esta captura se muestra como acceder a los grupos de usuarios:
 ## Demo
 En este apartado se va a crear una serie de datos de prueba que se puedan visualizar en el módulo garaje, para esto se accede a la carpeta [Demo](./demo/demo.xml) y se añaden los datos teniendo en cuenta la estructura del archivo [models](./models/models.py) para que lo recozca y se visualicen correctamente.
 
-Los datos que se añaden son de los diferentes modelos: aparcamiento, coches y mantenimiento
+Los datos que se añaden son de los diferentes modelos: aparcamiento, coches y mantenimiento.
 
 ![Bloque aparcamiento](./screenshots/app_garaje_bloques_aparcamiento.png)
 
@@ -106,7 +127,7 @@ Dentro de cada uno de los módulos se han incluido los datos de forma detallada:
 ### Aparcamiento
 ![Aparcamiento_info_general](./screenshots/aparcamiento_plaza_mayor_info_general.png)
 
-En esta captura se puede observar la relación entre aparcamiento y coches
+En esta captura se puede observar la relación entre aparcamiento y coches:
 ![Aparcamiento_info_general](./screenshots/aparcamiento_plaza_mayor_info_coche.png)
 
 ### Coches
@@ -140,7 +161,7 @@ Por otro lado, se establece una relación de coches-mantenimiento Many2many (muc
 
 ### Años del coche
 
-Para calcular los años del coche en [Models](./models/models.py) se implementa esta función en la clase coche. Para que funcione hay realizar una serie de imports
+Para calcular los años del coche en [Models](./models/models.py) se implementa esta función en la clase coche. Para que funcione hay realizar una serie de imports:
 
 ```Python
 from dateutil.relativedelta import *
@@ -167,7 +188,7 @@ _sql_constraints=[('name_uniq', 'unique(name)', 'La matricula ya existe')]
 
 ### Vista calendario
 
-Se puede mejorar el mensaje que se muestra en el calendario para que la vista sea más intuitiva para ello en [Models](./models/models.py) en la clase mantenimiento hay que crear esta función
+Se puede mejorar el mensaje que se muestra en el calendario para que la vista sea más intuitiva para ello en [Models](./models/models.py) en la clase mantenimiento hay que crear esta función:
 
 ```Python
  def name_get(self):
@@ -194,3 +215,54 @@ Después, en [Views](./views/views.xml) se añade el siguiente código:
 ![Icono_modulo_garaje](./screenshots/modulo_gararaje_app.png)
 
 ## Informes
+
+Crear carpeta report y dentro un archivo [xml](./report/garaje_aparcamiento_report.xml). En ese archivo se va a crear una estructura para mostrar todo lo necesario para crear un informe sobre los aparcamientos.
+
+En esta primera captura se observa como aparece la opción de imprimir cuando hemos seleccionado un aparcamiento.
+![aparcamiento_imprimir](./screenshots/aparcamiento_plaza_mayor_info_imprimir.png)
+
+Se puede visualizar el informe en la misma vista de odoo.
+![aparcamiento_imprimir](./screenshots/aparcamiento_plaza_mayor_info_imprimir_informe.png)
+
+Pero también se puede imprimir y obtener ese informe en formato pdf y descargarlo.
+![aparcamiento_imprimir](./screenshots/aparcamiento_plaza_mayor_info_imprimir_informe_pdf.png)
+
+Para que en el informe aparezca Averiado cuando el coche está en esa situación hay que escribir el siguiente código:
+
+```XML
+ <t t-if="coche.averiado">
+     <span>Averiado</span>
+ </t>
+```
+Si se quiere dar formato a la tabla dentro del atributo table se añade el atributo class y dentro el estilo que se quiere dar a la tabla:
+
+```XML
+ <table class="table table-sm o_main_table">
+ ```
+## Otra información de interés
+### Incluir archivos manifest
+Para que se puedan implementar de forma correcta todos los archivos creados es necesario añadir esos ficheros en [manifest](__manifest__.py):
+
+```Python
+ # always loaded
+    'data': [
+        'security/garaje_security.xml',
+        'security/ir.model.access.csv',
+        'views/views.xml',
+        'views/templates.xml',
+        'report/garaje_aparcamiento_report.xml',
+        'data/garaje_data.xml',
+    ],
+```
+
+*** Trabajo realizado por Almudena Fernández Cárdenas y Daniel García Ayala***
+
+>This repository is licensed under
+>[Creativecommons Org Licenses By Sa 4](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+
+
+
+
+
+
