@@ -117,6 +117,7 @@ En esta captura se muestra como acceder a los grupos de usuarios:
 
 ## Demo
 En este apartado se va a crear una serie de datos de prueba que se puedan visualizar en el módulo garaje, para esto se accede a la carpeta [Demo](./demo/demo.xml) y se añaden los datos teniendo en cuenta la estructura del archivo [models](./models/models.py) para que lo recozca y se visualicen correctamente.
+Si no se pueden osbservar los datos, es necesario ir a ajustes, en la sección Developer Tools y donde se ha activado el modo desarrollador, también activar modo desarrollador con datos de prueba y cargar datos de prueba.
 
 Los datos que se añaden son de los diferentes modelos: aparcamiento, coches y mantenimiento.
 
